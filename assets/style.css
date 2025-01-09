@@ -527,7 +527,7 @@ main{
     height: 100%;
     flex-wrap: wrap;
     padding: 1rem;
-    background-image: url("/assets/media/bg1.jpg");
+    background-image: url("assets/media/bg1.jpg");
     background-position: center;
     background-size: cover;
     box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.192);
