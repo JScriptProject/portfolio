@@ -299,6 +299,10 @@ nav{
   margin-top: 1.5rem ;
 }
 
+.social-menu-desk{
+    display:none;
+}
+
 .social-menu .social-link{
    font-size: var(--font-xsm);
    padding: 4px 15px;
