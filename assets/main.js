@@ -184,7 +184,7 @@ const whyMeHead = document.querySelector(".rightToLeft-why-me");
                 start:"top 80%",
                 end:"top 70%",
                 scrub:false,
-                markers:true,
+                markers:false,
             },
         }
     );
@@ -205,7 +205,7 @@ gsap.fromTo(
             start:"top 80%",
             end:"top 70%",
             scrub:true,
-            markers:true,
+            markers:false,
         },
     }
 );
@@ -223,7 +223,7 @@ dataWrap.forEach(ele => {
                 start:"top 80%",
                 end:"top 70%",
                 scrub:true,
-                markers:true,
+                markers:false,
             },
         }
     );
@@ -244,7 +244,7 @@ const whyDataLeft = document.querySelector(".section-data-left");
                 start:"top 80%",
                 end:"top 70%",
                 scrub:true,
-                markers:true,
+                markers:false,
             },
         }
     );
@@ -265,7 +265,7 @@ gsap.fromTo(
             start:"top 80%",
             end:"top 70%",
             scrub:true,
-            markers:true,
+            markers:false,
         },
     }
 );
@@ -285,7 +285,7 @@ gsap.fromTo(
             start:"top 80%",
             end:"top 70%",
             scrub:false,
-            markers:true,
+            markers:false,
         },
     }
 );
@@ -305,7 +305,7 @@ portfolioCards.forEach(ele => {
                 start:"top 80%",
                 end:"top 70%",
                 scrub:true,
-                markers:true,
+                markers:false,
             },
         }
     );
@@ -326,7 +326,7 @@ gsap.fromTo(
             start:"top 80%",
             end:"top 70%",
             scrub:false,
-            markers:true,
+            markers:false,
         },
     }
 );
@@ -343,7 +343,7 @@ gsap.fromTo(
             start:"top 80%",
             end:"top 70%",
             scrub:true,
-            markers:true,
+            markers:false,
         },
     }
 );
@@ -363,7 +363,7 @@ gsap.fromTo(
             start:"top 80%",
             end:"top 60%",
             scrub:true,
-            markers:true,
+            markers:false,
         },
     }
 );
