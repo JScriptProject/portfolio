@@ -73,32 +73,32 @@ portfolioCard.forEach(card => {
 
 // smoothe scrolling
 
-let menu = document.querySelector(".menu");
+// let menu = document.querySelector(".menu");
 
-menu.addEventListener("click", function (e) {
-    // Check if the clicked element is an anchor tag
-    if (e.target.tagName === "A") {
-        const href = e.target.getAttribute("href");
+// menu.addEventListener("click", function (e) {
+//     // Check if the clicked element is an anchor tag
+//     if (e.target.tagName === "A") {
+//         const href = e.target.getAttribute("href");
 
-        // Log the href for debugging
-        console.log(href);
+//         // Log the href for debugging
+//         console.log(href);
 
-        // If the href starts with "#", treat it as an internal link
-        if (href && href.startsWith("#")) {
-            e.preventDefault(); // Prevent default behavior for internal links
-            const targetElement = document.querySelector(href);
+//         // If the href starts with "#", treat it as an internal link
+//         if (href && href.startsWith("#")) {
+//             e.preventDefault(); // Prevent default behavior for internal links
+//             const targetElement = document.querySelector(href);
 
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: "smooth" });
-            } else {
-                console.warn(`No element found with ID: ${href}`);
-            }
-        } else {
-            // Allow external links to open normally
-            console.log("External link clicked");
-        }
-    }
-});
+//             if (targetElement) {
+//                 targetElement.scrollIntoView({ behavior: "smooth" });
+//             } else {
+//                 console.warn(`No element found with ID: ${href}`);
+//             }
+//         } else {
+//             // Allow external links to open normally
+//             console.log("External link clicked");
+//         }
+//     }
+// });
 
 
 
