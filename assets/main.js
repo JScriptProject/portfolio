@@ -73,32 +73,32 @@ portfolioCard.forEach(card => {
 
 // smoothe scrolling
 
-// let menu = document.querySelector(".menu");
+let menu = document.querySelector(".menu");
 
-// menu.addEventListener("click", function (e) {
-//     // Check if the clicked element is an anchor tag
-//     if (e.target.tagName === "A") {
-//         const href = e.target.getAttribute("href");
+menu.addEventListener("click", function (e) {
+    // Check if the clicked element is an anchor tag
+    if (e.target.tagName === "A") {
+        const href = e.target.getAttribute("href");
 
-//         // Log the href for debugging
-//         console.log(href);
+        // Log the href for debugging
+        console.log(href);
 
-//         // If the href starts with "#", treat it as an internal link
-//         if (href && href.startsWith("#")) {
-//             e.preventDefault(); // Prevent default behavior for internal links
-//             const targetElement = document.querySelector(href);
+        // If the href starts with "#", treat it as an internal link
+        if (href && href.startsWith("#")) {
+            e.preventDefault(); // Prevent default behavior for internal links
+            const targetElement = document.querySelector(href);
 
-//             if (targetElement) {
-//                 targetElement.scrollIntoView({ behavior: "smooth" });
-//             } else {
-//                 console.warn(`No element found with ID: ${href}`);
-//             }
-//         } else {
-//             // Allow external links to open normally
-//             console.log("External link clicked");
-//         }
-//     }
-// });
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: "smooth" });
+            } else {
+                console.warn(`No element found with ID: ${href}`);
+            }
+        } else {
+            // Allow external links to open normally
+            console.log("External link clicked");
+        }
+    }
+});
 
 
 
@@ -158,45 +158,45 @@ locomotiveScroll();
 
 // loading animation
 
-let t1 = gsap.timeline();
+// let t1 = gsap.timeline();
 
-t1.from("header h1", {
-    scale:0.2,
-    rotateX:"180deg",
-    opacity:0.2,
-    duration:2,
-    stagger:0.2
-})
+// t1.from("header h1", {
+//     scale:0.2,
+//     rotateX:"180deg",
+//     opacity:0.2,
+//     duration:2,
+//     stagger:0.2
+// })
 
-t1.to("header h1",{
-    scale:1,
-    rotateX:"0deg",
-    opacity:1,
-    duration:0.5,
-    stagger:0.2
-})
+// t1.to("header h1",{
+//     scale:1,
+//     rotateX:"0deg",
+//     opacity:1,
+//     duration:0.5,
+//     stagger:0.2
+// })
 
-t1.from("header .down-arrow , nav .main-title , .menu",{
-    opacity:0,
-    duration:0.5,
-    stagger:0.2
-})
+// t1.from("header .down-arrow , nav .main-title , .menu",{
+//     opacity:0,
+//     duration:0.5,
+//     stagger:0.2
+// })
 
-t1.from("header .social-menu-desk",{
-    x:"-200%",
-    stagger:0.2
-})
+// t1.from("header .social-menu-desk",{
+//     x:"-200%",
+//     stagger:0.2
+// })
 
-t1.to("header .down-arrow, nav .main-title , .menu",{
-    opacity:1, 
-    stagger:0.2,
-    duration:0.1
-})
+// t1.to("header .down-arrow, nav .main-title , .menu",{
+//     opacity:1, 
+//     stagger:0.2,
+//     duration:0.1
+// })
 
-t1.to("header .social-menu-desk",{
-    x:0,
-    stagger:0.2
-})
+// t1.to("header .social-menu-desk",{
+//     x:0,
+//     stagger:0.2
+// })
 
 // gsap.registerPlugin(ScrollTrigger);
 
