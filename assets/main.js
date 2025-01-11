@@ -198,204 +198,204 @@ t1.to("header .social-menu-desk",{
     stagger:0.2
 })
 
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
 
-// Animation of why me
-const whyMeHead = document.querySelector(".rightToLeft-why-me");
+// // Animation of why me
+// const whyMeHead = document.querySelector(".rightToLeft-why-me");
 
-    gsap.fromTo(
-        whyMeHead,{x:"100%", opacity:0},{
-            x:"0%", opacity:1,
-            duration:1,
-            scrollTrigger:{
-                trigger:whyMeHead,
-                scroller:"body",
-                start:"top 80%",
-                end:"top 70%",
-                scrub:false,
-                markers:false,
-            },
-        }
-    );
+//     gsap.fromTo(
+//         whyMeHead,{x:"100%", opacity:0},{
+//             x:"0%", opacity:1,
+//             duration:1,
+//             scrollTrigger:{
+//                 trigger:whyMeHead,
+//                 scroller:"body",
+//                 start:"top 80%",
+//                 end:"top 70%",
+//                 scrub:false,
+//                 markers:false,
+//             },
+//         }
+//     );
 
 
     // why section left
 
-const verticalBar = document.querySelector(".s-data-vertical-div");
-gsap.fromTo(
-    verticalBar,{x:"100%", opacity:0, rotateZ:"45deg", transformOrigin: "top"},{
-        x:"0%", opacity:1,
-        rotateZ:"0deg",
-        transformOrigin: "top",
-        duration:1,
-        scrollTrigger:{
-            trigger:verticalBar,
-            scroller:"body",
-            start:"top 80%",
-            end:"top 70%",
-            scrub:true,
-            markers:false,
-        },
-    }
-);
+// const verticalBar = document.querySelector(".s-data-vertical-div");
+// gsap.fromTo(
+//     verticalBar,{x:"100%", opacity:0, rotateZ:"45deg", transformOrigin: "top"},{
+//         x:"0%", opacity:1,
+//         rotateZ:"0deg",
+//         transformOrigin: "top",
+//         duration:1,
+//         scrollTrigger:{
+//             trigger:verticalBar,
+//             scroller:"body",
+//             start:"top 80%",
+//             end:"top 70%",
+//             scrub:true,
+//             markers:false,
+//         },
+//     }
+// );
 
-const dataWrap = document.querySelectorAll(".s-data-wrap");
+// const dataWrap = document.querySelectorAll(".s-data-wrap");
 
-dataWrap.forEach(ele => {
-    gsap.fromTo(
-        ele,{y:"100%", opacity:0},{
-            y:"0%", opacity:1,
-            duration:1,
-            scrollTrigger:{
-                trigger:ele,
-                scroller:"body",
-                start:"top 80%",
-                end:"top 70%",
-                scrub:true,
-                markers:false,
-            },
-        }
-    );
+// dataWrap.forEach(ele => {
+//     gsap.fromTo(
+//         ele,{y:"100%", opacity:0},{
+//             y:"0%", opacity:1,
+//             duration:1,
+//             scrollTrigger:{
+//                 trigger:ele,
+//                 scroller:"body",
+//                 start:"top 80%",
+//                 end:"top 70%",
+//                 scrub:true,
+//                 markers:false,
+//             },
+//         }
+//     );
 
-});
+// });
 
 // section data left - why me
 
-const whyDataLeft = document.querySelector(".section-data-left");
+// const whyDataLeft = document.querySelector(".section-data-left");
 
-    gsap.fromTo(
-        whyDataLeft,{ opacity:0},{
-            opacity:1,
-            duration:1,
-            scrollTrigger:{
-                trigger:whyDataLeft,
-                scroller:"body",
-                start:"top 80%",
-                end:"top 70%",
-                scrub:true,
-                markers:false,
-            },
-        }
-    );
+//     gsap.fromTo(
+//         whyDataLeft,{ opacity:0},{
+//             opacity:1,
+//             duration:1,
+//             scrollTrigger:{
+//                 trigger:whyDataLeft,
+//                 scroller:"body",
+//                 start:"top 80%",
+//                 end:"top 70%",
+//                 scrub:true,
+//                 markers:false,
+//             },
+//         }
+//     );
 
 
 
 // tech stack
 
-const logoWrapper = document.querySelector(".logo-wrapper");
+// const logoWrapper = document.querySelector(".logo-wrapper");
 
-gsap.fromTo(
-    logoWrapper,{ scale:0},{
-        scale:1,
-        duration:1,
-        scrollTrigger:{
-            trigger:logoWrapper,
-            scroller:"body",
-            start:"top 80%",
-            end:"top 70%",
-            scrub:true,
-            markers:false,
-        },
-    }
-);
+// gsap.fromTo(
+//     logoWrapper,{ scale:0},{
+//         scale:1,
+//         duration:1,
+//         scrollTrigger:{
+//             trigger:logoWrapper,
+//             scroller:"body",
+//             start:"top 80%",
+//             end:"top 70%",
+//             scrub:true,
+//             markers:false,
+//         },
+//     }
+// );
 
 
 // portfolio
 
-const portfolioSect = document.querySelector("#portfolio .section-heading");
+// const portfolioSect = document.querySelector("#portfolio .section-heading");
 
-gsap.fromTo(
-    portfolioSect,{x:"-100%", opacity:0},{
-        x:"0%", opacity:1,
-        duration:1,
-        scrollTrigger:{
-            trigger:portfolioSect,
-            scroller:"body",
-            start:"top 80%",
-            end:"top 70%",
-            scrub:false,
-            markers:false,
-        },
-    }
-);
+// gsap.fromTo(
+//     portfolioSect,{x:"-100%", opacity:0},{
+//         x:"0%", opacity:1,
+//         duration:1,
+//         scrollTrigger:{
+//             trigger:portfolioSect,
+//             scroller:"body",
+//             start:"top 80%",
+//             end:"top 70%",
+//             scrub:false,
+//             markers:false,
+//         },
+//     }
+// );
 
 // portfolio cards
 
-const portfolioCards = document.querySelectorAll(".portfolio-card");
-portfolioCards.forEach(ele => {
-    gsap.fromTo(
-        ele,{rotateY:"-180deg", opacity:0,transformOrigin: "top"},{
-            rotateY:"0deg", opacity:1,
-            transformOrigin: "top",
-            duration:1,
-            scrollTrigger:{
-                trigger:ele,
-                scroller:"body",
-                start:"top 80%",
-                end:"top 70%",
-                scrub:true,
-                markers:false,
-            },
-        }
-    );
-});
+// const portfolioCards = document.querySelectorAll(".portfolio-card");
+// portfolioCards.forEach(ele => {
+//     gsap.fromTo(
+//         ele,{rotateY:"-180deg", opacity:0,transformOrigin: "top"},{
+//             rotateY:"0deg", opacity:1,
+//             transformOrigin: "top",
+//             duration:1,
+//             scrollTrigger:{
+//                 trigger:ele,
+//                 scroller:"body",
+//                 start:"top 80%",
+//                 end:"top 70%",
+//                 scrub:true,
+//                 markers:false,
+//             },
+//         }
+//     );
+// });
 
 
 // contact
 
-const contactSection = document.querySelector("#contact .section-heading");
+// const contactSection = document.querySelector("#contact .section-heading");
 
-gsap.fromTo(
-    contactSection,{x:"100%", opacity:0},{
-        x:"0%", opacity:1,
-        duration:1,
-        scrollTrigger:{
-            trigger:contactSection,
-            scroller:"body",
-            start:"top 80%",
-            end:"top 70%",
-            scrub:false,
-            markers:false,
-        },
-    }
-);
+// gsap.fromTo(
+//     contactSection,{x:"100%", opacity:0},{
+//         x:"0%", opacity:1,
+//         duration:1,
+//         scrollTrigger:{
+//             trigger:contactSection,
+//             scroller:"body",
+//             start:"top 80%",
+//             end:"top 70%",
+//             scrub:false,
+//             markers:false,
+//         },
+//     }
+// );
 
-const contactText = document.querySelector(".contact-text");
+// const contactText = document.querySelector(".contact-text");
 
-gsap.fromTo(
-    contactText,{ opacity:0},{
-        opacity:1,
-        duration:1,
-        scrollTrigger:{
-            trigger:contactText,
-            scroller:"body",
-            start:"top 80%",
-            end:"top 70%",
-            scrub:true,
-            markers:false,
-        },
-    }
-);
+// gsap.fromTo(
+//     contactText,{ opacity:0},{
+//         opacity:1,
+//         duration:1,
+//         scrollTrigger:{
+//             trigger:contactText,
+//             scroller:"body",
+//             start:"top 80%",
+//             end:"top 70%",
+//             scrub:true,
+//             markers:false,
+//         },
+//     }
+// );
 
 
 // footer-top
 
-const footerTop = document.querySelector(".footer-top");
+// const footerTop = document.querySelector(".footer-top");
 
-gsap.fromTo(
-    footerTop,{y:"100%", opacity:0},{
-        y:"0%", opacity:1,
-        duration:1,
-        scrollTrigger:{
-            trigger:footerTop,
-            scroller:"body",
-            start:"top 80%",
-            end:"top 60%",
-            scrub:true,
-            markers:false,
-        },
-    }
-);
+// gsap.fromTo(
+//     footerTop,{y:"100%", opacity:0},{
+//         y:"0%", opacity:1,
+//         duration:1,
+//         scrollTrigger:{
+//             trigger:footerTop,
+//             scroller:"body",
+//             start:"top 80%",
+//             end:"top 60%",
+//             scrub:true,
+//             markers:false,
+//         },
+//     }
+// );
 
 
