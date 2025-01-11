@@ -1,40 +1,42 @@
 "use strict";
 
-// codepen code from here about Locomotive scroll
+gsap.registerPlugin(ScrollTrigger);
 
-function locomotiveScroll(){
-    gsap.registerPlugin(ScrollTrigger);
+// // codepen code from here about Locomotive scroll
 
-    // Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
-    
-    const locoScroll = new LocomotiveScroll({
-      el: document.querySelector(".main"),
-      smooth: true
-    });
-    // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
-    locoScroll.on("scroll", ScrollTrigger.update);
-    
-    // tell ScrollTrigger to use these proxy methods for the ".main" element since Locomotive Scroll is hijacking things
-    ScrollTrigger.scrollerProxy(".main", {
-      scrollTop(value) {
-        return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
-      }, // we don't have to define a scrollLeft because we're only scrolling vertically.
-      getBoundingClientRect() {
-        return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
-      },
-      // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
-      pinType: document.querySelector(".main").style.transform ? "transform" : "fixed"
-    });
-    
-    
-    // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
-    ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-    
-    // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
-    ScrollTrigger.refresh();    
-}
+// function locomotiveScroll(){
+//     gsap.registerPlugin(ScrollTrigger);
 
-locomotiveScroll();
+//     // Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
+    
+//     const locoScroll = new LocomotiveScroll({
+//       el: document.querySelector(".main"),
+//       smooth: true
+//     });
+//     // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
+//     locoScroll.on("scroll", ScrollTrigger.update);
+    
+//     // tell ScrollTrigger to use these proxy methods for the ".main" element since Locomotive Scroll is hijacking things
+//     ScrollTrigger.scrollerProxy(".main", {
+//       scrollTop(value) {
+//         return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+//       }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+//       getBoundingClientRect() {
+//         return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
+//       },
+//       // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
+//       pinType: document.querySelector(".main").style.transform ? "transform" : "fixed"
+//     });
+    
+    
+//     // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
+//     ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+    
+//     // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
+//     ScrollTrigger.refresh();    
+// }
+
+// locomotiveScroll();
 
 
 
@@ -161,244 +163,244 @@ menu.addEventListener("click", function (e) {
 
 // loading animation
 
-// let t1 = gsap.timeline();
+let t1 = gsap.timeline();
 
-// t1.from("header h1", {
-//     scale:0.2,
-//     rotateX:"180deg",
-//     opacity:0.2,
-//     duration:2,
-//     stagger:0.2
-// })
+t1.from("header h1", {
+    scale:0.2,
+    rotateX:"180deg",
+    opacity:0.2,
+    duration:2,
+    stagger:0.2
+})
 
-// t1.to("header h1",{
-//     scale:1,
-//     rotateX:"0deg",
-//     opacity:1,
-//     duration:0.5,
-//     stagger:0.2
-// })
+t1.to("header h1",{
+    scale:1,
+    rotateX:"0deg",
+    opacity:1,
+    duration:0.5,
+    stagger:0.2
+})
 
-// t1.from("header .down-arrow , nav .main-title , .menu",{
-//     opacity:0,
-//     duration:0.5,
-//     stagger:0.2
-// })
+t1.from("header .down-arrow , nav .main-title , .menu",{
+    opacity:0,
+    duration:0.5,
+    stagger:0.2
+})
 
-// t1.from("header .social-menu-desk",{
-//     x:"-200%",
-//     stagger:0.2
-// })
+t1.from("header .social-menu-desk",{
+    x:"-200%",
+    stagger:0.2
+})
 
-// t1.to("header .down-arrow, nav .main-title , .menu",{
-//     opacity:1, 
-//     stagger:0.2,
-//     duration:0.1
-// })
+t1.to("header .down-arrow, nav .main-title , .menu",{
+    opacity:1, 
+    stagger:0.2,
+    duration:0.1
+})
 
-// t1.to("header .social-menu-desk",{
-//     x:0,
-//     stagger:0.2
-// })
+t1.to("header .social-menu-desk",{
+    x:0,
+    stagger:0.2
+})
 
-// gsap.registerPlugin(ScrollTrigger);
+
 
 
 // // Animation of why me
-// const whyMeHead = document.querySelector(".rightToLeft-why-me");
+const whyMeHead = document.querySelector(".rightToLeft-why-me");
 
-//     gsap.fromTo(
-//         whyMeHead,{x:"100%", opacity:0},{
-//             x:"0%", opacity:1,
-//             duration:1,
-//             scrollTrigger:{
-//                 trigger:whyMeHead,
-//                 scroller:"body",
-//                 start:"top 80%",
-//                 end:"top 70%",
-//                 scrub:false,
-//                 markers:false,
-//             },
-//         }
-//     );
+    gsap.fromTo(
+        whyMeHead,{x:"100%", opacity:0},{
+            x:"0%", opacity:1,
+            duration:1,
+            scrollTrigger:{
+                trigger:whyMeHead,
+                scroller:"body",
+                start:"top 80%",
+                end:"top 70%",
+                scrub:false,
+                markers:false,
+            },
+        }
+    );
 
 
     // why section left
 
-// const verticalBar = document.querySelector(".s-data-vertical-div");
-// gsap.fromTo(
-//     verticalBar,{x:"100%", opacity:0, rotateZ:"45deg", transformOrigin: "top"},{
-//         x:"0%", opacity:1,
-//         rotateZ:"0deg",
-//         transformOrigin: "top",
-//         duration:1,
-//         scrollTrigger:{
-//             trigger:verticalBar,
-//             scroller:"body",
-//             start:"top 80%",
-//             end:"top 70%",
-//             scrub:true,
-//             markers:false,
-//         },
-//     }
-// );
+const verticalBar = document.querySelector(".s-data-vertical-div");
+gsap.fromTo(
+    verticalBar,{x:"100%", opacity:0, rotateZ:"45deg", transformOrigin: "top"},{
+        x:"0%", opacity:1,
+        rotateZ:"0deg",
+        transformOrigin: "top",
+        duration:1,
+        scrollTrigger:{
+            trigger:verticalBar,
+            scroller:"body",
+            start:"top 80%",
+            end:"top 70%",
+            scrub:true,
+            markers:false,
+        },
+    }
+);
 
-// const dataWrap = document.querySelectorAll(".s-data-wrap");
+const dataWrap = document.querySelectorAll(".s-data-wrap");
 
-// dataWrap.forEach(ele => {
-//     gsap.fromTo(
-//         ele,{y:"100%", opacity:0},{
-//             y:"0%", opacity:1,
-//             duration:1,
-//             scrollTrigger:{
-//                 trigger:ele,
-//                 scroller:"body",
-//                 start:"top 80%",
-//                 end:"top 70%",
-//                 scrub:true,
-//                 markers:false,
-//             },
-//         }
-//     );
+dataWrap.forEach(ele => {
+    gsap.fromTo(
+        ele,{y:"100%", opacity:0},{
+            y:"0%", opacity:1,
+            duration:1,
+            scrollTrigger:{
+                trigger:ele,
+                scroller:"body",
+                start:"top 80%",
+                end:"top 70%",
+                scrub:true,
+                markers:false,
+            },
+        }
+    );
 
-// });
+});
 
 // section data left - why me
 
-// const whyDataLeft = document.querySelector(".section-data-left");
+const whyDataLeft = document.querySelector(".section-data-left");
 
-//     gsap.fromTo(
-//         whyDataLeft,{ opacity:0},{
-//             opacity:1,
-//             duration:1,
-//             scrollTrigger:{
-//                 trigger:whyDataLeft,
-//                 scroller:"body",
-//                 start:"top 80%",
-//                 end:"top 70%",
-//                 scrub:true,
-//                 markers:false,
-//             },
-//         }
-//     );
+    gsap.fromTo(
+        whyDataLeft,{ opacity:0},{
+            opacity:1,
+            duration:1,
+            scrollTrigger:{
+                trigger:whyDataLeft,
+                scroller:"body",
+                start:"top 80%",
+                end:"top 70%",
+                scrub:true,
+                markers:false,
+            },
+        }
+    );
 
 
 
 // tech stack
 
-// const logoWrapper = document.querySelector(".logo-wrapper");
+const logoWrapper = document.querySelector(".logo-wrapper");
 
-// gsap.fromTo(
-//     logoWrapper,{ scale:0},{
-//         scale:1,
-//         duration:1,
-//         scrollTrigger:{
-//             trigger:logoWrapper,
-//             scroller:"body",
-//             start:"top 80%",
-//             end:"top 70%",
-//             scrub:true,
-//             markers:false,
-//         },
-//     }
-// );
+gsap.fromTo(
+    logoWrapper,{ scale:0},{
+        scale:1,
+        duration:1,
+        scrollTrigger:{
+            trigger:logoWrapper,
+            scroller:"body",
+            start:"top 80%",
+            end:"top 70%",
+            scrub:true,
+            markers:false,
+        },
+    }
+);
 
 
 // portfolio
 
-// const portfolioSect = document.querySelector("#portfolio .section-heading");
+const portfolioSect = document.querySelector("#portfolio .section-heading");
 
-// gsap.fromTo(
-//     portfolioSect,{x:"-100%", opacity:0},{
-//         x:"0%", opacity:1,
-//         duration:1,
-//         scrollTrigger:{
-//             trigger:portfolioSect,
-//             scroller:"body",
-//             start:"top 80%",
-//             end:"top 70%",
-//             scrub:false,
-//             markers:false,
-//         },
-//     }
-// );
+gsap.fromTo(
+    portfolioSect,{x:"-100%", opacity:0},{
+        x:"0%", opacity:1,
+        duration:1,
+        scrollTrigger:{
+            trigger:portfolioSect,
+            scroller:"body",
+            start:"top 80%",
+            end:"top 70%",
+            scrub:false,
+            markers:false,
+        },
+    }
+);
 
 // portfolio cards
 
-// const portfolioCards = document.querySelectorAll(".portfolio-card");
-// portfolioCards.forEach(ele => {
-//     gsap.fromTo(
-//         ele,{rotateY:"-180deg", opacity:0,transformOrigin: "top"},{
-//             rotateY:"0deg", opacity:1,
-//             transformOrigin: "top",
-//             duration:1,
-//             scrollTrigger:{
-//                 trigger:ele,
-//                 scroller:"body",
-//                 start:"top 80%",
-//                 end:"top 70%",
-//                 scrub:true,
-//                 markers:false,
-//             },
-//         }
-//     );
-// });
+const portfolioCards = document.querySelectorAll(".portfolio-card");
+portfolioCards.forEach(ele => {
+    gsap.fromTo(
+        ele,{rotateY:"-180deg", opacity:0,transformOrigin: "top"},{
+            rotateY:"0deg", opacity:1,
+            transformOrigin: "top",
+            duration:1,
+            scrollTrigger:{
+                trigger:ele,
+                scroller:"body",
+                start:"top 80%",
+                end:"top 70%",
+                scrub:true,
+                markers:false,
+            },
+        }
+    );
+});
 
 
 // contact
 
-// const contactSection = document.querySelector("#contact .section-heading");
+const contactSection = document.querySelector("#contact .section-heading");
 
-// gsap.fromTo(
-//     contactSection,{x:"100%", opacity:0},{
-//         x:"0%", opacity:1,
-//         duration:1,
-//         scrollTrigger:{
-//             trigger:contactSection,
-//             scroller:"body",
-//             start:"top 80%",
-//             end:"top 70%",
-//             scrub:false,
-//             markers:false,
-//         },
-//     }
-// );
+gsap.fromTo(
+    contactSection,{x:"100%", opacity:0},{
+        x:"0%", opacity:1,
+        duration:1,
+        scrollTrigger:{
+            trigger:contactSection,
+            scroller:"body",
+            start:"top 80%",
+            end:"top 70%",
+            scrub:false,
+            markers:false,
+        },
+    }
+);
 
-// const contactText = document.querySelector(".contact-text");
+const contactText = document.querySelector(".contact-text");
 
-// gsap.fromTo(
-//     contactText,{ opacity:0},{
-//         opacity:1,
-//         duration:1,
-//         scrollTrigger:{
-//             trigger:contactText,
-//             scroller:"body",
-//             start:"top 80%",
-//             end:"top 70%",
-//             scrub:true,
-//             markers:false,
-//         },
-//     }
-// );
+gsap.fromTo(
+    contactText,{ opacity:0},{
+        opacity:1,
+        duration:1,
+        scrollTrigger:{
+            trigger:contactText,
+            scroller:"body",
+            start:"top 80%",
+            end:"top 70%",
+            scrub:true,
+            markers:false,
+        },
+    }
+);
 
 
 // footer-top
 
-// const footerTop = document.querySelector(".footer-top");
+const footerTop = document.querySelector(".footer-top");
 
-// gsap.fromTo(
-//     footerTop,{y:"100%", opacity:0},{
-//         y:"0%", opacity:1,
-//         duration:1,
-//         scrollTrigger:{
-//             trigger:footerTop,
-//             scroller:"body",
-//             start:"top 80%",
-//             end:"top 60%",
-//             scrub:true,
-//             markers:false,
-//         },
-//     }
-// );
+gsap.fromTo(
+    footerTop,{y:"100%", opacity:0},{
+        y:"0%", opacity:1,
+        duration:1,
+        scrollTrigger:{
+            trigger:footerTop,
+            scroller:"body",
+            start:"top 80%",
+            end:"top 60%",
+            scrub:true,
+            markers:false,
+        },
+    }
+);
 
 
