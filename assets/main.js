@@ -75,17 +75,47 @@ portfolioCard.forEach(card => {
 
 let menu = document.querySelector(".menu");
 
-menu.addEventListener("click", function(e){
-    console.log(e.target.getAttribute("href"));
-    console.log("i am outside");
-   e.preventDefault();
-   if(e.target.getAttribute("href")){
-    let id = e.target.getAttribute("href");
-    const scrollToId = document.querySelector(id);
-    console.log(scrollToId);
-    scrollToId.scrollIntoView({behavior: "smooth"});
-   }
-   })
+menu.addEventListener("click", function (e) {
+    // Check if the clicked element is an anchor tag
+    if (e.target.tagName === "A") {
+        const href = e.target.getAttribute("href");
+
+        // Log the href for debugging
+        console.log(href);
+
+        // If the href starts with "#", treat it as an internal link
+        if (href && href.startsWith("#")) {
+            e.preventDefault(); // Prevent default behavior for internal links
+            const targetElement = document.querySelector(href);
+
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: "smooth" });
+            } else {
+                console.warn(`No element found with ID: ${href}`);
+            }
+        } else {
+            // Allow external links to open normally
+            console.log("External link clicked");
+        }
+    }
+});
+
+
+
+
+// let menu = document.querySelector(".menu");
+
+// menu.addEventListener("click", function(e){
+//     console.log(e.target.getAttribute("href"));
+//     console.log("i am outside");
+//    e.preventDefault();
+//    if(e.target.getAttribute("href")){
+//     let id = e.target.getAttribute("href");
+//     const scrollToId = document.querySelector(id);
+//     console.log(scrollToId);
+//     scrollToId.scrollIntoView({behavior: "smooth"});
+//    }
+//    })
 
 //    GSAP Animation start frmo here
 
