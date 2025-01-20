@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- EmailJS CDN -->
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+
     <!-- favicon -->
     <link rel="shortcut icon" href="assets/media/favicon.ico" type="image/x-icon">
 
@@ -301,7 +305,7 @@
                 </div>
                 <div class="contact-body">
                     <div class="contact-form">
-                        <form action="/submit-form" method="POST">
+                        <form id="contact-form">
                             <div class="contact-form-part">
                                 <div class="entry-wrap-form"><label for="name">Name</label>
                                     <input type="text" id="name" name="name" required></div>
