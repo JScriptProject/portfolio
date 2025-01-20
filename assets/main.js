@@ -381,8 +381,8 @@ document.getElementById("contact-form").addEventListener("submit", function(e){
 
     emailjs.sendForm('service_3u9vrgg', 'template_jucaot8', this)
         .then(function(response) {
-            alert("Form submitted successfully!");
+            alert("Awesome !!! Form submitted successfully! I will connect you back ASAP, you can also directly connect by sending email on ravi@blogspage.com 😊");
         }, function(error) {
-            alert('Failed to submit the form: ' + error);
+            alert('Oppps! Failed to submit the form: ' + error);
         });
 });
