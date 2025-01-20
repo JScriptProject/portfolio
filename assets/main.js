@@ -371,32 +371,18 @@ gsap.fromTo(
 // EmailJS
 // init
 
-emailjs.init({
-    publicKey: 'q06c_82uyaoHKxI-O',
-    // Do not allow headless browsers
-    blockHeadless: true,
-    blockList: {
-      // Block the suspended emails
-      list: ['foo@emailjs.com', 'bar@emailjs.com'],
-      // The variable contains the email address
-      watchVariable: 'userEmail',
-    },
-    limitRate: {
-      // Set the limit rate for the application
-      id: 'app',
-      // Allow 1 request per 10s
-      throttle: 10000,
-    },
-  });
+emailjs.init('q06c_82uyaoHKxI-O');
 
-  document.getElementById("contact-form").addEventListener("submit", function(e){
+document.getElementById("contact-form").addEventListener("submit", function(e){
     e.preventDefault();
     
-    const formData = new FormData(this);
+    // Optionally log FormData to see if it's being captured
+    console.log(new FormData(this));
 
-    emailjs.sendForm('service_3u9vrgg','template_jucaot8', this).then(function(response){
-        alert("form submitted succesfully!");
-    }, function(error){
-        alert('Failed to submit the form');
-    });
-  });
+    emailjs.sendForm('service_3u9vrgg', 'template_jucaot8', this)
+        .then(function(response) {
+            alert("Form submitted successfully!");
+        }, function(error) {
+            alert('Failed to submit the form: ' + error);
+        });
+});
