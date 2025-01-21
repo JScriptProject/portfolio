@@ -128,6 +128,33 @@ menu.addEventListener("click", function (e) {
 
 let t1 = gsap.timeline();
 
+t1.from(".loader h3",{
+    x:"40px",
+    opacity:1,
+    duration:1,
+    stagger:0.1
+})
+
+t1.to(".loader-h3-next",{
+    color:"#F93827",
+    fontWeight:600
+})
+
+t1.to(".loader-span",{
+    opacity:1
+})
+
+t1.to(".loader h3",{
+    opacity:0,
+    x:"-10px",
+    duration:2,
+    stagger:0.1
+})
+
+t1.to(".loader",{
+    opacity:0
+ })
+
 t1.from("header h1", {
     scale:0.2,
     rotateX:"180deg",
@@ -143,6 +170,9 @@ t1.to("header h1",{
     duration:0.5,
     stagger:0.2
 })
+t1.to(".loader",{
+    display:"none"
+ })
 
 t1.from("header .down-arrow , nav .main-title , .menu",{
     opacity:0,
@@ -167,56 +197,59 @@ t1.to("header .social-menu-desk",{
 })
 
 
+// Responsive GSAP animation code
+
+// ScrollTrigger.matchMedia({
+//     "(min-width:1050px)": function(){
+//       //animation code inside
+//     },
+//     "(max-width:1049px)": function(){
+//         ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+//     }
+//    })
+
 
 
 // // Animation of why me
 const whyMeHead = document.querySelector(".rightToLeft-why-me");
-
-    gsap.fromTo(
-        whyMeHead,{x:"100%", opacity:0},{
-            x:"0%", opacity:1,
-            duration:1,
-            scrollTrigger:{
-                trigger:whyMeHead,
-                scroller:"body",
-                start:"top 80%",
-                end:"top 70%",
-                scrub:false,
-                markers:false,
-            },
-        }
-    );
+   ScrollTrigger.matchMedia({
+    "(min-width:1050px)": function(){
+        gsap.fromTo(
+            whyMeHead,{x:"100%", opacity:0},{
+                x:"0%", opacity:1,
+                duration:1,
+                scrollTrigger:{
+                    trigger:whyMeHead,
+                    scroller:"body",
+                    start:"top 80%",
+                    end:"top 70%",
+                    scrub:false,
+                    markers:false,
+                },
+            }
+        );
+    },
+    "(max-width:1049px)": function(){
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    }
+   })
 
 
     // why section left
 
 const verticalBar = document.querySelector(".s-data-vertical-div");
-gsap.fromTo(
-    verticalBar,{x:"100%", opacity:0, rotateZ:"45deg", transformOrigin: "top"},{
-        x:"0%", opacity:1,
-        rotateZ:"0deg",
-        transformOrigin: "top",
-        duration:1,
-        scrollTrigger:{
-            trigger:verticalBar,
-            scroller:"body",
-            start:"top 80%",
-            end:"top 70%",
-            scrub:true,
-            markers:false,
-        },
-    }
-);
 
-const dataWrap = document.querySelectorAll(".s-data-wrap");
-
-dataWrap.forEach(ele => {
-    gsap.fromTo(
-        ele,{y:"100%", opacity:0},{
-            y:"0%", opacity:1,
+ScrollTrigger.matchMedia({
+    "(min-width:1050px)": function(){
+      //animation code inside
+      gsap.fromTo(
+        verticalBar,{x:"100%", opacity:0, rotateZ:"45deg", transformOrigin: "top"},{
+            x:"0%", opacity:1,
+            rotateZ:"0deg",
+            transformOrigin: "top",
             duration:1,
             scrollTrigger:{
-                trigger:ele,
+                trigger:verticalBar,
                 scroller:"body",
                 start:"top 80%",
                 end:"top 70%",
@@ -226,13 +259,55 @@ dataWrap.forEach(ele => {
         }
     );
 
-});
+    },
+    "(max-width:1049px)": function(){
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    }
+   })
+
+
+
+const dataWrap = document.querySelectorAll(".s-data-wrap");
+
+
+ScrollTrigger.matchMedia({
+    "(min-width:1050px)": function(){
+      //animation code inside
+      dataWrap.forEach(ele => {
+        gsap.fromTo(
+            ele,{y:"100%", opacity:0},{
+                y:"0%", opacity:1,
+                duration:1,
+                scrollTrigger:{
+                    trigger:ele,
+                    scroller:"body",
+                    start:"top 80%",
+                    end:"top 70%",
+                    scrub:true,
+                    markers:false,
+                },
+            }
+        );
+    
+    });
+
+    },
+    "(max-width:1049px)": function(){
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    }
+   })
+
+
+
 
 // section data left - why me
 
 const whyDataLeft = document.querySelector(".section-data-left");
 
-    gsap.fromTo(
+ScrollTrigger.matchMedia({
+    "(min-width:1050px)": function(){
+      //animation code inside
+      gsap.fromTo(
         whyDataLeft,{ opacity:0},{
             opacity:1,
             duration:1,
@@ -246,6 +321,14 @@ const whyDataLeft = document.querySelector(".section-data-left");
             },
         }
     );
+    },
+    "(max-width:1049px)": function(){
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    }
+   })
+
+
+  
 
 
 
@@ -253,52 +336,15 @@ const whyDataLeft = document.querySelector(".section-data-left");
 
 const logoWrapper = document.querySelector(".logo-wrapper");
 
-gsap.fromTo(
-    logoWrapper,{ scale:0},{
-        scale:1,
-        duration:1,
-        scrollTrigger:{
-            trigger:logoWrapper,
-            scroller:"body",
-            start:"top 80%",
-            end:"top 70%",
-            scrub:true,
-            markers:false,
-        },
-    }
-);
-
-
-// portfolio
-
-const portfolioSect = document.querySelector("#portfolio .section-heading");
-
-gsap.fromTo(
-    portfolioSect,{x:"-100%", opacity:0},{
-        x:"0%", opacity:1,
-        duration:1,
-        scrollTrigger:{
-            trigger:portfolioSect,
-            scroller:"body",
-            start:"top 80%",
-            end:"top 70%",
-            scrub:false,
-            markers:false,
-        },
-    }
-);
-
-// portfolio cards
-
-const portfolioCards = document.querySelectorAll(".portfolio-card");
-portfolioCards.forEach(ele => {
-    gsap.fromTo(
-        ele,{rotateY:"-180deg", opacity:0,transformOrigin: "top"},{
-            rotateY:"0deg", opacity:1,
-            transformOrigin: "top",
+ScrollTrigger.matchMedia({
+    "(min-width:1050px)": function(){
+      //animation code inside
+      gsap.fromTo(
+        logoWrapper,{ scale:0},{
+            scale:1,
             duration:1,
             scrollTrigger:{
-                trigger:ele,
+                trigger:logoWrapper,
                 scroller:"body",
                 start:"top 80%",
                 end:"top 70%",
@@ -307,82 +353,202 @@ portfolioCards.forEach(ele => {
             },
         }
     );
-});
+
+    },
+    "(max-width:1049px)": function(){
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    }
+   })
+
+
+
+
+// portfolio
+
+const portfolioSect = document.querySelector("#portfolio .section-heading");
+
+ScrollTrigger.matchMedia({
+    "(min-width:1050px)": function(){
+      //animation code inside
+      gsap.fromTo(
+        portfolioSect,{x:"-100%", opacity:0},{
+            x:"0%", opacity:1,
+            duration:1,
+            scrollTrigger:{
+                trigger:portfolioSect,
+                scroller:"body",
+                start:"top 80%",
+                end:"top 70%",
+                scrub:false,
+                markers:false,
+            },
+        }
+    );
+    },
+    "(max-width:1049px)": function(){
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    }
+   })
+
+
+
+
+// portfolio cards
+
+const portfolioCards = document.querySelectorAll(".portfolio-card");
+
+ScrollTrigger.matchMedia({
+    "(min-width:1050px)": function(){
+      //animation code inside
+      portfolioCards.forEach(ele => {
+        gsap.fromTo(
+            ele,{rotateY:"-180deg", opacity:0,transformOrigin: "top"},{
+                rotateY:"0deg", opacity:1,
+                transformOrigin: "top",
+                duration:1,
+                scrollTrigger:{
+                    trigger:ele,
+                    scroller:"body",
+                    start:"top 80%",
+                    end:"top 70%",
+                    scrub:true,
+                    markers:false,
+                },
+            }
+        );
+    });
+    },
+    "(max-width:1049px)": function(){
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    }
+   })
+
+
+
 
 
 // contact
 
 const contactSection = document.querySelector("#contact .section-heading");
 
-gsap.fromTo(
-    contactSection,{x:"100%", opacity:0},{
-        x:"0%", opacity:1,
-        duration:1,
-        scrollTrigger:{
-            trigger:contactSection,
-            scroller:"body",
-            start:"top 80%",
-            end:"top 70%",
-            scrub:false,
-            markers:false,
-        },
+
+ScrollTrigger.matchMedia({
+    "(min-width:1050px)": function(){
+      //animation code inside
+      gsap.fromTo(
+        contactSection,{x:"100%", opacity:0},{
+            x:"0%", opacity:1,
+            duration:1,
+            scrollTrigger:{
+                trigger:contactSection,
+                scroller:"body",
+                start:"top 80%",
+                end:"top 70%",
+                scrub:false,
+                markers:false,
+            },
+        }
+    );
+    },
+    "(max-width:1049px)": function(){
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     }
-);
+   })
+
+
+
 
 const contactText = document.querySelector(".contact-text");
 
-gsap.fromTo(
-    contactText,{ opacity:0},{
-        opacity:1,
-        duration:1,
-        scrollTrigger:{
-            trigger:contactText,
-            scroller:"body",
-            start:"top 80%",
-            end:"top 70%",
-            scrub:true,
-            markers:false,
-        },
+
+ScrollTrigger.matchMedia({
+    "(min-width:1050px)": function(){
+      //animation code inside
+      gsap.fromTo(
+        contactText,{ opacity:0},{
+            opacity:1,
+            duration:1,
+            scrollTrigger:{
+                trigger:contactText,
+                scroller:"body",
+                start:"top 80%",
+                end:"top 70%",
+                scrub:true,
+                markers:false,
+            },
+        }
+    );
+    },
+    "(max-width:1049px)": function(){
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     }
-);
+   })
+
+
+
 
 
 // footer-top
 
 const footerTop = document.querySelector(".footer-top");
 
-gsap.fromTo(
-    footerTop,{y:"100%", opacity:0},{
-        y:"0%", opacity:1,
-        duration:1,
-        scrollTrigger:{
-            trigger:footerTop,
-            scroller:"body",
-            start:"top 80%",
-            end:"top 60%",
-            scrub:true,
-            markers:false,
-        },
+ScrollTrigger.matchMedia({
+    "(min-width:1050px)": function(){
+      //animation code inside
+      gsap.fromTo(
+        footerTop,{y:"100%", opacity:0},{
+            y:"0%", opacity:1,
+            duration:1,
+            scrollTrigger:{
+                trigger:footerTop,
+                scroller:"body",
+                start:"top 80%",
+                end:"top 60%",
+                scrub:true,
+                markers:false,
+            },
+        }
+    );
+    },
+    "(max-width:1049px)": function(){
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     }
-);
+   })
+
+
+
 
 
 
 // EmailJS
 // init
 
-emailjs.init('q06c_82uyaoHKxI-O');
+emailjs.init({
+    publicKey: 'q06c_82uyaoHKxI-O',
+    // Do not allow headless browsers
+    blockHeadless: true,
+    blockList: {
+      // Block the suspended emails
+      list: ['foo@emailjs.com', 'bar@emailjs.com'],
+      // The variable contains the email address
+      watchVariable: 'userEmail',
+    },
+    limitRate: {
+      // Set the limit rate for the application
+      id: 'app',
+      // Allow 1 request per 10s
+      throttle: 10000,
+    },
+  });
 
-document.getElementById("contact-form").addEventListener("submit", function(e){
+  document.getElementById("contact-form").addEventListener("submit", function(e){
     e.preventDefault();
     
-    // Optionally log FormData to see if it's being captured
-    console.log(new FormData(this));
+    const formData = new FormData(this);
 
-    emailjs.sendForm('service_3u9vrgg', 'template_jucaot8', this)
-        .then(function(response) {
-            alert("Awesome !!! Form submitted successfully! I will connect you back ASAP, you can also directly connect by sending email on ravi@blogspage.com 😊");
-        }, function(error) {
-            alert('Oppps! Failed to submit the form: ' + error);
-        });
-});
+    emailjs.sendForm('service_3u9vrgg','template_jucaot8', this).then(function(response){
+        alert("form submitted succesfully!");
+    }, function(error){
+        alert('Failed to submit the form');
+    });
+  });

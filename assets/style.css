@@ -338,6 +338,7 @@ nav{
 
 main{
  position:relative;
+ overflow: hidden;
 }
 
 #why-me{
@@ -1019,3 +1020,28 @@ header h1{
     font-size: var(--font-md);
 }
 } 
+
+
+/* loader */
+
+.loader{
+    position:fixed;
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--black-brand);
+    z-index: 199;
+}
+
+.loader-h3{
+    font-size:1.5rem;
+    color:#fff;
+    font-weight:200;
+}
+
+.loader-span{
+    font-size: 2rem;
+    opacity:0;
+}
