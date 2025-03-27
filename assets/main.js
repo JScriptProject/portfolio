@@ -81,11 +81,16 @@ let menu = document.querySelector(".menu");
 menu.addEventListener("click", function (e) {
     // Check if the clicked element is an anchor tag
     if (e.target.tagName === "A") {
+        
         const href = e.target.getAttribute("href");
 
         // Log the href for debugging
         console.log(href);
-
+        if(menuWrapper.classList.contains("nav-active")){
+            menuWrapper.classList.remove("nav-active");
+            navOpen.classList.toggle("nav-active");
+            navClose.classList.toggle("nav-active");
+        }
         // If the href starts with "#", treat it as an internal link
         if (href && href.startsWith("#")) {
             e.preventDefault(); // Prevent default behavior for internal links
@@ -104,23 +109,6 @@ menu.addEventListener("click", function (e) {
 });
 
 
-
-
-// let menu = document.querySelector(".menu");
-
-// menu.addEventListener("click", function(e){
-//     console.log(e.target.getAttribute("href"));
-//     console.log("i am outside");
-//    e.preventDefault();
-//    if(e.target.getAttribute("href")){
-//     let id = e.target.getAttribute("href");
-//     const scrollToId = document.querySelector(id);
-//     console.log(scrollToId);
-//     scrollToId.scrollIntoView({behavior: "smooth"});
-//    }
-//    })
-
-//    GSAP Animation start frmo here
 
 
 
@@ -340,14 +328,14 @@ ScrollTrigger.matchMedia({
     "(min-width:1050px)": function(){
       //animation code inside
       gsap.fromTo(
-        logoWrapper,{ scale:0},{
-            scale:1,
+        logoWrapper,{ rotateX:90},{
+            rotateX:0,
             duration:1,
             scrollTrigger:{
                 trigger:logoWrapper,
                 scroller:"body",
                 start:"top 80%",
-                end:"top 70%",
+                end:"top 60%",
                 scrub:true,
                 markers:false,
             },
@@ -496,14 +484,14 @@ ScrollTrigger.matchMedia({
     "(min-width:1050px)": function(){
       //animation code inside
       gsap.fromTo(
-        footerTop,{y:"100%", opacity:0},{
-            y:"0%", opacity:1,
+        footerTop,{rotateX:90},{
+            rotateX:0,
             duration:1,
             scrollTrigger:{
                 trigger:footerTop,
                 scroller:"body",
-                start:"top 80%",
-                end:"top 60%",
+                start:"top 90%",
+                end:"top 70%",
                 scrub:true,
                 markers:false,
             },
@@ -515,6 +503,28 @@ ScrollTrigger.matchMedia({
     }
    })
 
+   ScrollTrigger.matchMedia({
+    "(min-width:1050px)": function(){
+      //animation code inside
+      gsap.fromTo(
+        footerTop,{ y:0},{
+             y:-50,
+            duration:1,
+            scrollTrigger:{
+                trigger:footerTop,
+                scroller:"body",
+                start:"top 70%",
+                end:"top 50%",
+                scrub:true,
+                markers:false,
+            },
+        }
+    );
+    },
+    "(max-width:1049px)": function(){
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    }
+   })
 
 
 

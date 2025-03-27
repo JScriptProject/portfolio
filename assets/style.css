@@ -519,7 +519,7 @@ main{
     color: gray;
     font-family: var(--ff-playfair);
     font-size: var(--font-lg);
-    padding-bottom: 1rem;
+    padding-bottom: 2.5rem;
     text-transform: uppercase;
 }
 
@@ -775,6 +775,7 @@ footer{
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.411);
 }
 
 .footer-top h2{
