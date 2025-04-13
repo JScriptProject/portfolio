@@ -162,6 +162,10 @@ t1.to(".loader",{
     display:"none"
  })
 
+
+
+
+
 t1.from("header .down-arrow , nav .main-title , .menu",{
     opacity:0,
     duration:0.5,
@@ -200,59 +204,63 @@ t1.to("header .social-menu-desk",{
 
 // // Animation of why me
 const whyMeHead = document.querySelector(".rightToLeft-why-me");
-   ScrollTrigger.matchMedia({
-    "(min-width:1050px)": function(){
-        gsap.fromTo(
-            whyMeHead,{x:"100%", opacity:0},{
-                x:"0%", opacity:1,
-                duration:1,
-                scrollTrigger:{
-                    trigger:whyMeHead,
-                    scroller:"body",
-                    start:"top 80%",
-                    end:"top 70%",
-                    scrub:false,
-                    markers:false,
-                },
-            }
-        );
-    },
-    "(max-width:1049px)": function(){
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    }
-   })
+
+if (whyMeHead) {
+    ScrollTrigger.matchMedia({
+        "(min-width:1050px)": function () {
+            gsap.fromTo(
+                whyMeHead,
+                { x: "100%", opacity: 0 },
+                {
+                    x: "0%", opacity: 1,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: whyMeHead,
+                        scroller: "body",
+                        start: "top 80%",
+                        end: "top 70%",
+                        scrub: false,
+                        markers: false,
+                    },
+                }
+            );
+        },
+        "(max-width:1049px)": function () {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        }
+    });
+}
 
 
     // why section left
 
 const verticalBar = document.querySelector(".s-data-vertical-div");
 
-ScrollTrigger.matchMedia({
-    "(min-width:1050px)": function(){
-      //animation code inside
-      gsap.fromTo(
-        verticalBar,{x:"100%", opacity:0, rotateZ:"45deg", transformOrigin: "top"},{
-            x:"0%", opacity:1,
-            rotateZ:"0deg",
-            transformOrigin: "top",
-            duration:1,
-            scrollTrigger:{
-                trigger:verticalBar,
-                scroller:"body",
-                start:"top 80%",
-                end:"top 70%",
-                scrub:true,
-                markers:false,
-            },
+if (verticalBar) {
+    ScrollTrigger.matchMedia({
+        "(min-width:1050px)": function () {
+            gsap.fromTo(
+                verticalBar,
+                { opacity: 0.5 },
+                {
+                    opacity: 1,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: verticalBar,
+                        scroller: "body",
+                        start: "top 80%",
+                        end: "top 70%",
+                        scrub: true,
+                        markers: false,
+                    },
+                }
+            );
+        },
+        "(max-width:1049px)": function () {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         }
-    );
-
-    },
-    "(max-width:1049px)": function(){
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    }
-   })
-
+    });
+}
 
 
 const dataWrap = document.querySelectorAll(".s-data-wrap");
@@ -263,14 +271,14 @@ ScrollTrigger.matchMedia({
       //animation code inside
       dataWrap.forEach(ele => {
         gsap.fromTo(
-            ele,{y:"100%", opacity:0},{
+            ele,{y:"400%", scale:3, opacity:0.1},{
                 y:"0%", opacity:1,
-                duration:1,
+                duration:1, scale:1,
                 scrollTrigger:{
                     trigger:ele,
                     scroller:"body",
-                    start:"top 80%",
-                    end:"top 70%",
+                    start:"top 90%",
+                    end:"top 80%",
                     scrub:true,
                     markers:false,
                 },
@@ -328,8 +336,8 @@ ScrollTrigger.matchMedia({
     "(min-width:1050px)": function(){
       //animation code inside
       gsap.fromTo(
-        logoWrapper,{ rotateX:90},{
-            rotateX:0,
+        logoWrapper,{ y:"100%", scale:3, duration:1},{
+            y:"0%", scale:1,
             duration:1,
             scrollTrigger:{
                 trigger:logoWrapper,
@@ -349,67 +357,91 @@ ScrollTrigger.matchMedia({
    })
 
 
-
-
-// portfolio
-
-const portfolioSect = document.querySelector("#portfolio .section-heading");
-
-ScrollTrigger.matchMedia({
+   ScrollTrigger.matchMedia({
     "(min-width:1050px)": function(){
       //animation code inside
-      gsap.fromTo(
-        portfolioSect,{x:"-100%", opacity:0},{
-            x:"0%", opacity:1,
+      gsap.to(
+        logoWrapper,{
+            backgroundColor:"#fff", boxShadow:"0 0 20px 2px rgba(0, 0, 0, 0.192)",
             duration:1,
             scrollTrigger:{
-                trigger:portfolioSect,
+                trigger:logoWrapper,
                 scroller:"body",
-                start:"top 80%",
-                end:"top 70%",
-                scrub:false,
+                start:"top 70%",
+                end:"top 30%",
+                scrub:true,
                 markers:false,
             },
         }
     );
+
     },
     "(max-width:1049px)": function(){
         ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     }
    })
+
+
+
+// portfolio
+
+// const portfolioSect = document.querySelector("#portfolio .section-heading");
+
+// ScrollTrigger.matchMedia({
+//     "(min-width:1050px)": function(){
+//       //animation code inside
+//       gsap.fromTo(
+//         portfolioSect,{x:"-100%", opacity:0},{
+//             x:"0%", opacity:1,
+//             duration:1,
+//             scrollTrigger:{
+//                 trigger:portfolioSect,
+//                 scroller:"body",
+//                 start:"top 80%",
+//                 end:"top 70%",
+//                 scrub:false,
+//                 markers:false,
+//             },
+//         }
+//     );
+//     },
+//     "(max-width:1049px)": function(){
+//         ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+//     }
+//    })
 
 
 
 
 // portfolio cards
 
-const portfolioCards = document.querySelectorAll(".portfolio-card");
+// const portfolioCards = document.querySelectorAll(".portfolio-card");
 
-ScrollTrigger.matchMedia({
-    "(min-width:1050px)": function(){
-      //animation code inside
-      portfolioCards.forEach(ele => {
-        gsap.fromTo(
-            ele,{rotateY:"-180deg", opacity:0,transformOrigin: "top"},{
-                rotateY:"0deg", opacity:1,
-                transformOrigin: "top",
-                duration:1,
-                scrollTrigger:{
-                    trigger:ele,
-                    scroller:"body",
-                    start:"top 80%",
-                    end:"top 70%",
-                    scrub:true,
-                    markers:false,
-                },
-            }
-        );
-    });
-    },
-    "(max-width:1049px)": function(){
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    }
-   })
+// ScrollTrigger.matchMedia({
+//     "(min-width:1050px)": function(){
+//       //animation code inside
+//       portfolioCards.forEach(ele => {
+//         gsap.fromTo(
+//             ele,{rotateY:"-180deg", opacity:0,transformOrigin: "top"},{
+//                 rotateY:"0deg", opacity:1,
+//                 transformOrigin: "top",
+//                 duration:1,
+//                 scrollTrigger:{
+//                     trigger:ele,
+//                     scroller:"body",
+//                     start:"top 80%",
+//                     end:"top 70%",
+//                     scrub:true,
+//                     markers:false,
+//                 },
+//             }
+//         );
+//     });
+//     },
+//     "(max-width:1049px)": function(){
+//         ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+//     }
+//    })
 
 
 
@@ -419,58 +451,60 @@ ScrollTrigger.matchMedia({
 
 const contactSection = document.querySelector("#contact .section-heading");
 
-
-ScrollTrigger.matchMedia({
-    "(min-width:1050px)": function(){
-      //animation code inside
-      gsap.fromTo(
-        contactSection,{x:"100%", opacity:0},{
-            x:"0%", opacity:1,
-            duration:1,
-            scrollTrigger:{
-                trigger:contactSection,
-                scroller:"body",
-                start:"top 80%",
-                end:"top 70%",
-                scrub:false,
-                markers:false,
-            },
+if (contactSection) {
+    ScrollTrigger.matchMedia({
+        "(min-width:1050px)": function () {
+            gsap.fromTo(
+                contactSection,
+                { x: "100%", opacity: 0 },
+                {
+                    x: "0%", opacity: 1,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: contactSection,
+                        scroller: "body",
+                        start: "top 80%",
+                        end: "top 70%",
+                        scrub: false,
+                        markers: false,
+                    },
+                }
+            );
+        },
+        "(max-width:1049px)": function () {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         }
-    );
-    },
-    "(max-width:1049px)": function(){
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    }
-   })
-
-
+    });
+}
 
 
 const contactText = document.querySelector(".contact-text");
 
-
-ScrollTrigger.matchMedia({
-    "(min-width:1050px)": function(){
-      //animation code inside
-      gsap.fromTo(
-        contactText,{ opacity:0},{
-            opacity:1,
-            duration:1,
-            scrollTrigger:{
-                trigger:contactText,
-                scroller:"body",
-                start:"top 80%",
-                end:"top 70%",
-                scrub:true,
-                markers:false,
-            },
+if (contactText) {
+    ScrollTrigger.matchMedia({
+        "(min-width:1050px)": function () {
+            gsap.fromTo(
+                contactText,
+                { opacity: 0 },
+                {
+                    opacity: 1,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: contactText,
+                        scroller: "body",
+                        start: "top 80%",
+                        end: "top 70%",
+                        scrub: true,
+                        markers: false,
+                    },
+                }
+            );
+        },
+        "(max-width:1049px)": function () {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         }
-    );
-    },
-    "(max-width:1049px)": function(){
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    }
-   })
+    });
+}
 
 
 
@@ -480,53 +514,55 @@ ScrollTrigger.matchMedia({
 
 const footerTop = document.querySelector(".footer-top");
 
-ScrollTrigger.matchMedia({
-    "(min-width:1050px)": function(){
-      //animation code inside
-      gsap.fromTo(
-        footerTop,{rotateX:90},{
-            rotateX:0,
-            duration:1,
-            scrollTrigger:{
-                trigger:footerTop,
-                scroller:"body",
-                start:"top 90%",
-                end:"top 70%",
-                scrub:true,
-                markers:false,
-            },
+if (footerTop) {
+    ScrollTrigger.matchMedia({
+        "(min-width:1050px)": function () {
+            gsap.fromTo(
+                footerTop,
+                { rotateX: 90 },
+                {
+                    rotateX: 0,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: footerTop,
+                        scroller: "body",
+                        start: "top 90%",
+                        end: "top 70%",
+                        scrub: true,
+                        markers: false,
+                    },
+                }
+            );
+        },
+        "(max-width:1049px)": function () {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         }
-    );
-    },
-    "(max-width:1049px)": function(){
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    }
-   })
+    });
 
-   ScrollTrigger.matchMedia({
-    "(min-width:1050px)": function(){
-      //animation code inside
-      gsap.fromTo(
-        footerTop,{ y:0},{
-             y:-50,
-            duration:1,
-            scrollTrigger:{
-                trigger:footerTop,
-                scroller:"body",
-                start:"top 70%",
-                end:"top 50%",
-                scrub:true,
-                markers:false,
-            },
+    ScrollTrigger.matchMedia({
+        "(min-width:1050px)": function () {
+            gsap.fromTo(
+                footerTop,
+                { y: 0 },
+                {
+                    y: -50,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: footerTop,
+                        scroller: "body",
+                        start: "top 70%",
+                        end: "top 50%",
+                        scrub: true,
+                        markers: false,
+                    },
+                }
+            );
+        },
+        "(max-width:1049px)": function () {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         }
-    );
-    },
-    "(max-width:1049px)": function(){
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    }
-   })
-
-
+    });
+}
 
 
 
@@ -562,3 +598,39 @@ emailjs.init({
         alert('Failed to submit the form');
     });
   });
+
+
+
+ if(window.matchMedia("(min-width: 1049px)").matches){
+// Register the GSAP ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
+
+// Pin the #Campagne element until the end of the container
+ScrollTrigger.create({
+    trigger: ".portfolio-main-wrapper", // The container for scrolling
+    start: "top top", // Start when the top of the container hits the top of the viewport
+    end: "bottom bottom", // End when the bottom of the container hits the bottom of the viewport
+    pin: "#portfolio-main", // Pin the #Campagne element
+    pinSpacing: false, // Prevent any additional spacing while pinning
+});
+
+
+
+
+const portFolioItems = document.querySelectorAll(".portfolio-item");
+
+portFolioItems.forEach(item => {
+    const bgImg = item.getAttribute("data-bg");
+    
+    ScrollTrigger.create({
+        trigger:item,
+        start:"top center",
+        onEnter:()=>{
+            document.querySelector("#portfolio").style.background = `linear-gradient(#000000e1,#000000e1), ${bgImg}`;
+        },
+        onEnterBack:()=>{
+            document.querySelector("#portfolio").style.background = `linear-gradient(#000000e1, #000000e1), ${bgImg}`;
+        },
+    })
+})
+} 
