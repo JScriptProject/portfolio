@@ -46,8 +46,8 @@ const portfolioData = {
         link:"https://jscriptproject.github.io/EDU/ "
     },
     altihealth:{
-        info:"Slider with text, Card animations and best on Hover. Responsive Design.",
-        link:"https://jscriptproject.github.io/AltiHealth"
+        info:"Crafted React website, highly interactive UI/UX optimized high speed.",
+        link:"https://restore-website-five.vercel.app/"
     }
 }
 
